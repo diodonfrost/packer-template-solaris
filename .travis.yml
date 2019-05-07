@@ -1,16 +1,16 @@
-dist: trusty
-sudo: false
+dist: xenial   # required for Python >= 3.7
+language: python
+python:
+  - "3.7"
 
 env:
   - distribution: solaris
     version: "10"
     minor: "11"
 
-before_install:
+install:
   # Install the latest version of Packer with ansible
-  - sudo apt-get install -y software-properties-common
-  - sudo apt-add-repository -y ppa:ansible/ansible && sudo apt-get update && sudo apt-get install -y ansible
-  - sudo apt-get update && sudo apt-get install -y ansible
+  - sudo pip install ansible
   - sudo ansible-galaxy install git+https://github.com/diodonfrost/ansible-role-packer
   - sudo ansible-pull -U https://github.com/diodonfrost/ansible-role-packer tests/test.yml
 
