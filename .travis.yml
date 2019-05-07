@@ -7,9 +7,12 @@ env:
     minor: "11"
 
 before_install:
-  # Download and install packer from hashicorp repository
- - wget https://releases.hashicorp.com/packer/1.3.2/packer_1.3.2_linux_amd64.zip
- - unzip -d ~/bin packer_1.3.2_linux_amd64.zip
+  # Install the latest version of Packer with ansible
+  - sudo apt-get install -y software-properties-common
+  - sudo apt-add-repository -y ppa:ansible/ansible && sudo apt-get update && sudo apt-get install -y ansible
+  - sudo apt-get update && sudo apt-get install -y ansible
+  - ansible-galaxy install git+https://github.com/diodonfrost/ansible-role-packer
+  - ansible-pull -U https://github.com/diodonfrost/ansible-role-packer tests/test.yml
 
 before_script:
   - packer --version
