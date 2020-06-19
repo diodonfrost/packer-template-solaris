@@ -1,6 +1,6 @@
 # packer-template-solaris
 
-[![Build Status](https://travis-ci.org/diodonfrost/packer-template-solaris.svg?branch=master)](https://travis-ci.org/diodonfrost/packer-template-solaris)
+[![CI](https://github.com/diodonfrost/packer-template-solaris/workflows/CI/badge.svg)](https://github.com/diodonfrost/packer-template-solaris/actions)
 
 Packer templates for building solaris minimal vagrant baseboxes
 
